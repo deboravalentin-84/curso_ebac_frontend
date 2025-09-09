@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluxo de Trabalho - Exercício HTML</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .step {
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #4b6cb7;
+        }
+        
+        h2 {
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+        
+        h3 {
+            color: #4a5568;
+            margin: 20px 0 10px;
+        }
+        
+        .path {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            padding: 12px;
+            border-radius: 5px;
+            font-family: 'Consolas', monospace;
+            margin: 10px 0;
+        }
+        
+        .command {
+            background-color: #2d3748;
+            color: #81e6d9;
+            padding: 12px;
+            border-radius: 5px;
+            font-family: 'Consolas', monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        
+        .explanation {
+            background-color: #ebf8ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #3182ce;
+        }
+        
+        .important {
+            background-color: #fff5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #e53e3e;
+        }
+        
+        .success {
+            background-color: #f0fff4;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #38a169;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #2d3748;
+            color: #e2e8f0;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Fluxo de Trabalho - Exercício HTML</h1>
+            <p>Como enviar seu arquivo para o GitHub na branch correta</p>
+        </header>
+        
+        <div class="content">
+            <div class="step">
+                <h2>1. Salve seu arquivo HTML</h2>
+                <p>Salve o arquivo do formulário HTML na pasta do seu projeto:</p>
+                <div class="path">
+                    C:\Users\Debora\Desktop\projetos\curso_ebac_frontend\formulario-cadastro.html
+                </div>
+                <p>Você pode fazer isso pelo Visual Studio Code, usando o menu "File" > "Save".</p>
+            </div>
+            
+            <div class="step">
+                <h2>2. Abra o PowerShell na pasta do projeto</h2>
+                <p>Para abrir o PowerShell diretamente na pasta do projeto:</p>
+                <ol>
+                    <li>Abra o Explorador de Arquivos</li>
+                    <li>Navegue até: <span class="path">C:\Users\Debora\Desktop\projetos\curso_ebac_frontend</span></li>
+                    <li>Clique com o botão direito segurando Shift e selecione "Abrir janela do PowerShell aqui"</li>
+                </ol>
+                
+                <div class="explanation">
+                    <h3>Por que usar o PowerShell?</h3>
+                    <p>Você só precisa do PowerShell para executar comandos Git que enviarão seu arquivo para o GitHub. O arquivo HTML em si é aberto no navegador, não no PowerShell.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <h2>3. Execute os comandos Git</h2>
+                <p>No PowerShell, execute os seguintes comandos:</p>
+                
+                <div class="command">
+                    # Verifique se está na pasta correta<br>
+                    git status
+                </div>
+                
+                <div class="command">
+                    # Crie e mude para a branch exercicio_html<br>
+                    git checkout -b exercicio_html
+                </div>
+                
+                <div class="command">
+                    # Adicione o arquivo ao staging area<br>
+                    git add formulario-cadastro.html
+                </div>
+                
+                <div class="command">
+                    # Faça o commit do arquivo<br>
+                    git commit -m "Adiciona formulário de cadastro com nome, email e senha"
+                </div>
+                
+                <div class="command">
+                    # Envie para o GitHub<br>
+                    git push -u origin exercicio_html
+                </div>
+            </div>
+            
+            <div class="important">
+                <h2>Importante!</h2>
+                <p>O PowerShell é usado apenas para os comandos Git. Para visualizar seu formulário HTML, você deve:</p>
+                <ol>
+                    <li>Abri-lo no Visual Studio Code</li>
+                    <li>Clicar com o botão direito no arquivo e selecionar "Abrir com Live Server" (se tiver a extensão)</li>
+                    <li>Ou abrir diretamente no navegador (duplo clique no arquivo)</li>
+                </ol>
+            </div>
+            
+            <div class="success">
+                <h2>Pronto!</h2>
+                <p>Após executar esses passos, seu arquivo estará disponível no GitHub na branch <strong>exercicio_html</strong> e você poderá enviar o link para os tutores.</p>
+                <p>Seu formulário HTML continuará salvo na pasta do projeto, e você poderá editá-lo sempre que necessário.</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Curso EBAC Frontend - Exercício de Formulário HTML</p>
+        </footer>
+    </div>
+
+    <script>
+        // Destaque interativo nos comandos
+        document.querySelectorAll('.command').forEach(cmd => {
+            cmd.addEventListener('click', function() {
+                const text = this.textContent;
+                navigator.clipboard.writeText(text)
+                    .then(() => {
+                        const original = this.textContent;
+                        this.textContent = 'Comando copiado!';
+                        setTimeout(() => {
+                            this.textContent = original;
+                        }, 1500);
+                    });
+            });
+        });
+    </script>
+</body>
+</html>
