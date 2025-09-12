@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Tarefas</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    h1 {
+      color: #333;
+    }
+    input, button {
+      padding: 8px;
+      font-size: 16px;
+    }
+    li {
+      cursor: pointer;
+      margin: 5px 0;
+    }
+    .concluida {
+      text-decoration: line-through;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lista de Tarefas</h1>
+
+  <form id="form-tarefa">
+    <input type="text" id="tarefa" placeholder="Digite uma tarefa" required>
+    <button type="submit">Cadastrar</button>
+  </form>
+
+  <ul id="lista-tarefas"></ul>
+
+  <script>
+    $(document).ready(function () {
+      $('#form-tarefa').submit(function (e) {
+        e.preventDefault(); // impede reload da página
+        const tarefa = $('#tarefa').val();
+        
+        if (tarefa.trim() !== '') {
+          $('#lista-tarefas').append('<li>' + tarefa + '</li>');
+          $('#tarefa').val(''); // limpa o campo
+        }
+      });
+
+      // evento para riscar tarefa ao clicar
+      $('#lista-tarefas').on('click', 'li', function () {
+        $(this).toggleClass('concluida');
+      });
+    });
+  </script>
+</body>
+</html>
